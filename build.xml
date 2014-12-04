@@ -1,13 +1,38 @@
 <project name="HelloWorld" basedir="." default="main">
 
-    <property name="src.dir"     value="src"/>
+<property name="src.dir"     value="src"/>
 
-    <property name="build.dir"   value="build"/>
-    <property name="classes.dir" value="${build.dir}/classes"/>
-    <property name="jar.dir"     value="${build.dir}/jar"/>
+<property name="build.dir"   value="build"/>
+<property name="classes.dir" value="${build.dir}/classes"/>
+<property name="jar.dir"     value="${build.dir}/jar"/>
+<property name="test.build.dir" value="build/test" />
+<property name="test.src.dir" value="test"/>
+<property name="report.dir" value="${build.dir}/junit"/>
 
-    <property name="main-class"  value="sample.HelloWorld"/>
+<property name="main-class"  value="sample.HelloWorld"/>
 
+<path id="classpath.base" />
+
+<path id="classpath.test">
+    <pathelement location="lib/junit-4.11.jar" />
+    <pathelement location="lib/hamcrest-core-1.3.jar" />
+    <pathelement location="${build.dir}"/>
+    <path refid="classpath.base" />
+</path>
+
+<target name="test" depends="compile-test">
+    <mkdir dir="${report.dir}"/>
+    <junit printsummary="on" haltonfailure="yes">
+        <classpath>
+          <path refid="classpath.test" />
+          <pathelement location="${test.build.dir}"/>
+        </classpath>
+        <formatter type="xml" usefile="true" />
+        <batchtest todir="${report.dir}">
+            <fileset dir="${test.src.dir}" includes="**/*Test*.java" />
+        </batchtest>
+    </junit>
+</target>
 
 
     <target name="clean">
@@ -17,6 +42,13 @@
     <target name="compile">
         <mkdir dir="${classes.dir}"/>
         <javac srcdir="${src.dir}" destdir="${classes.dir}"/>
+    </target>
+
+    <target name="compile-test" depends="compile">  
+      <mkdir dir="${test.build.dir}"/>
+      <javac srcdir="${test.src.dir}" destdir="${test.build.dir}" includeantruntime="false">
+      <classpath refid="classpath.test"/>
+    </javac>
     </target>
 
     <target name="jar" depends="compile">
@@ -34,6 +66,6 @@
 
     <target name="clean-build" depends="clean,jar"/>
 
-    <target name="main" depends="clean,run"/>
+    <target name="main" depends="clean,test,run"/>
 
 </project>
