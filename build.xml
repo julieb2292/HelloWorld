@@ -1,3 +1,8 @@
+<!-- 
+    HelloWorld Build file
+    Barry Mullan - Rally Software (2014)
+ -->
+
 <project name="HelloWorld" basedir="." default="main">
 
 <property name="src.dir"     value="src"/>
