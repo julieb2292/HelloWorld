@@ -11,8 +11,5 @@ public class HelloWorld {
     	return a+b;
     }
 
-    public int add1(int a, int b) {
-    	return a+b;
-    }
 
 }
