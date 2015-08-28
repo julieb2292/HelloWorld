@@ -13,6 +13,11 @@ import org.junit.runners.JUnit4;
  * @author user@example.com (John Doe)
  */
 public class HelloWorldTest {
+    
+    @Test
+    public void thisAlwaysFails() {
+        assert(false);
+    }
 
     @Test
     public void thisAlwaysPasses() {
