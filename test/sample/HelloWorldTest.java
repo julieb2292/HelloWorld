@@ -16,7 +16,7 @@ public class HelloWorldTest {
     
     @Test
     public void thisAlwaysFails() {
-        assert(false);
+        fail("This is the end!");
     }
 
     @Test
