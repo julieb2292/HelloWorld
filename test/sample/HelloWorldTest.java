@@ -15,14 +15,14 @@ import org.junit.runners.JUnit4;
  */
 public class HelloWorldTest {
     
-    // @Test
-    // public void thisAlwaysFails() {
-    //     fail("This is the end!");
-    // }
+    @Test
+    public void thisAlwaysFails() {
+        fail("This is the end!");
+    }
 
     @Test
     public void thisAlwaysPasses() {
-
+        assertTrue(true);
     }
 
     @Test
