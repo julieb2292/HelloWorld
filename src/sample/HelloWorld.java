@@ -4,7 +4,7 @@ package sample;
 public class HelloWorld {
 
     public static void main(String[] args) {
-        System.out.println("Hello World");          // the old SysO-statement
+        System.out.println("Hello World");          
     }
 
     public int add(int a, int b) {
@@ -19,5 +19,8 @@ public class HelloWorld {
     	return a-b;
     }
 
+    public int subtract2(int a, int b) {
+    	return a-b;
+    }
 
 }
