@@ -22,9 +22,4 @@ public class HelloWorld {
     public int subtract2(int a, int b) {
     	return a-b;
     }
-    
-     public int subtract2(int a, int b) {
-    	return a-b;
-    }
-
 }
