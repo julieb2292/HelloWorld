@@ -23,7 +23,7 @@ public class HelloWorld {
     	return a-b;
     }
     
-     public int subtract3(int a, int b) {
+     public int subtract2(int a, int b) {
     	return a-b;
     }
 
